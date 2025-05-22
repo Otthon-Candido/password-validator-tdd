@@ -64,8 +64,8 @@ public class PasswordValidatorTdd {
         if (!temEspecial) {
             erros.add("A senha deve conter pelo menos um caractere especial");
         }
-        if (senha.equals("Abcd12312@")) {
-            return new ValidationResult(false, Collections.singletonList("A senha deve ter menos de 12 caracteres"));
+        if (senha.length() > 12) {
+            erros.add("A senha deve ter menos de 12 caracteres");
         }
         return new ValidationResult(erros.isEmpty(), erros);
     }
