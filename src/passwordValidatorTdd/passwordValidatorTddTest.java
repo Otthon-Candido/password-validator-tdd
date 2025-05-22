@@ -30,7 +30,7 @@ public class passwordValidatorTddTest {
     
     @Test
     public void shouldReturnErrorForPasswordWithoutSpecialCharacter() {
-        PasswordValidatorTdd.ValidationResult result = PasswordValidatorTdd.validatePassword("Abcdef12");
+        PasswordValidatorTdd.ValidationResult result = PasswordValidatorTdd.validatePassword("Abcd12312@");
         assertFalse(result.isPasswordValid());
         assertTrue(result.getErrorMessages().contains("A senha deve conter pelo menos um caractere especial"));
     }
