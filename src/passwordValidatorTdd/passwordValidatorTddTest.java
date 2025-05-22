@@ -24,7 +24,8 @@ public class passwordValidatorTddTest {
     public void shouldReturnErrorForPasswordWithoutUppercaseLetter() {
     	PasswordValidatorTdd.ValidationResult result = PasswordValidatorTdd.validatePassword("abcde12!");
         assertFalse(result.isPasswordValid());
-        assertTrue(result.getErrorMessages().contains("A senha deve conter pelo menos uma letra maiuscula"));
+        assertTrue(result.getErrorMessages().contains("A senha deve conter pelo menos uma letra maiúscula"));
+
     }
 
 }
