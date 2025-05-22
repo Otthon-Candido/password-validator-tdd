@@ -7,6 +7,7 @@ public class Main {
         testarSenha("abcde12!");     
         testarSenha("Abcde12!");
         testarSenha("Ab1cde");      
+        testarSenha("Ab1cde321321@@31");
     }
 
     public static void testarSenha(String senha) {
