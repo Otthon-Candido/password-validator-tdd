@@ -54,6 +54,12 @@ public class PasswordValidatorTdd {
         }
         
         boolean temEspecial = false;
+        for (char c : senha.toCharArray()) {
+            if (!Character.isLetterOrDigit(c)) {
+                temEspecial = true;
+                break;
+            }
+        }
         if (!temEspecial) {
             erros.add("A senha deve conter pelo menos um caractere especial");
         }
