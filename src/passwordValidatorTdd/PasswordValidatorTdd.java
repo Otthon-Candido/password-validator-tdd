@@ -52,6 +52,8 @@ public class PasswordValidatorTdd {
         if (!temMaiuscula) {
             erros.add("A senha deve conter pelo menos uma letra maiúscula");
         }
+        
+
 
         return new ValidationResult(erros.isEmpty(), erros);
     }

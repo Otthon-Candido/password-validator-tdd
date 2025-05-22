@@ -27,5 +27,12 @@ public class passwordValidatorTddTest {
         assertTrue(result.getErrorMessages().contains("A senha deve conter pelo menos uma letra maiúscula"));
 
     }
+    
+    @Test
+    public void shouldReturnErrorForPasswordWithoutSpecialCharacter() {
+        PasswordValidatorTdd.ValidationResult result = PasswordValidatorTdd.validatePassword("Abcdef12");
+        assertFalse(result.isPasswordValid());
+        assertTrue(result.getErrorMessages().contains("A senha deve conter pelo menos um caractere especial"));
+    }
 
 }
