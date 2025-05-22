@@ -1,7 +1,6 @@
 package passwordValidatorTdd;
 
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PasswordValidatorTdd {
@@ -25,18 +24,35 @@ public class PasswordValidatorTdd {
     }
 
     public static ValidationResult validatePassword(String senha) {
-        if (senha.equals("Ab1!")) {
-            return new ValidationResult(false, Collections.singletonList("A senha deve ter pelo menos 8 caracteres"));
+        List<String> erros = new ArrayList<>();
+
+        if (senha.length() < 8) {
+            erros.add("A senha deve ter pelo menos 8 caracteres");
         }
 
-        if (senha.equals("Abcdefg!")) {
-            return new ValidationResult(false, Collections.singletonList("A senha deve conter pelo menos 2 dígitos"));
+        int qtdDigitos = 0;
+        for (int i = 0; i < senha.length(); i++) {
+            char c = senha.charAt(i);
+            if (Character.isDigit(c)) {
+                qtdDigitos++;
+            }
+        }
+        if (qtdDigitos < 2) {
+            erros.add("A senha deve conter pelo menos 2 dígitos");
         }
 
-        if (senha.equals("abcde12!")) {
-            return new ValidationResult(false, Collections.singletonList("A senha deve conter pelo menos uma letra maiúscula"));
+        boolean temMaiuscula = false;
+        for (int i = 0; i < senha.length(); i++) {
+            char c = senha.charAt(i);
+            if (Character.isUpperCase(c)) {
+                temMaiuscula = true;
+                break;
+            }
+        }
+        if (!temMaiuscula) {
+            erros.add("A senha deve conter pelo menos uma letra maiúscula");
         }
 
-        return new ValidationResult(true, Collections.emptyList());
+        return new ValidationResult(erros.isEmpty(), erros);
     }
 }
