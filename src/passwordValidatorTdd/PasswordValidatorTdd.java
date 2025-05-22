@@ -53,7 +53,10 @@ public class PasswordValidatorTdd {
             erros.add("A senha deve conter pelo menos uma letra maiúscula");
         }
         
-
+        boolean temEspecial = false;
+        if (!temEspecial) {
+            erros.add("A senha deve conter pelo menos um caractere especial");
+        }
 
         return new ValidationResult(erros.isEmpty(), erros);
     }
